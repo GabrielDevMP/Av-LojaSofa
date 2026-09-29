@@ -1,42 +1,53 @@
 var Tabcama = new Array(4);
 
-Tabcama[0] = ["Cama de Solteiro", "Simples", "104 x 104 x 202 (AxLxP)", "CamaSolt_150", 325];
-Tabcama[1] = ["Cama de Solteiro", "Bicama", "70 x 87 x 193 (AxLxP)", "BicamaSolteiro_150", 470];
-Tabcama[2] = ["Cama de Casal", "Simples", "108 x 154 x 210 (AxLxP)", "CamaCasalSImples_150", 680];
-Tabcama[3] = ["Cama de Casal", "Com gavetas", "48 x 145 x 195 (AxLxP)", "CamaCasalGavetas_150", 1900];
+Tabcama[0] = ["Cama de Solteiro", "Simples", "108 x 154 x 210(AxLxP)", "CamaSolt_150", 325];
+Tabcama[1] = ["Cama de Solteiro", "Bicama", "70 x 80 x 193(AxLxP)", "BicamaSolteiro_150", 470];
+Tabcama[2] = ["Camas de Casal", "Simples", "108 x 154 x 210(AxLxP)", "CamaCasalSimples_150", 680];
+Tabcama[3] = ["Camas de Casal", "Com gavetas", "48 x 145 x 195(AxLxP)", "CamaCasalGavetas_150", 1900];
 
 function MostrarTabCamas(tipo) {
-    var gab = window.open(
-        "",
-        "janelaCama",
-        "location=no,status=no,width=300,height=420"
-    );
+    // 1. Abre a janela
 
-    if (!gab) {
+   
+var larg = 300;
+var alt = 385;
+var posX = (screen.width - larg) / 2;
+// Subtraia um pouco mais para compensar a barra de ferramentas do navegador
+var posY = (screen.height - alt) / 2 - 50; 
+
+var jan = window.open("", Tabcama[tipo][0],
+   "location=no,status=no," +
+    "width=" + larg + ",height=" + alt + ",top=" + posY + ",left=" + posX);
+
+    // 2. Verifica se a janela abriu (não foi bloqueada)
+    if (!jan) {
+        alert("Por favor, permita pop-ups para este site.");
         return;
     }
 
-    var pasta = location.href.substring(0, location.href.lastIndexOf("/") + 1);
-    var cama = Tabcama[tipo];
+    // 3. Monta todo o HTML em uma única string
+    var html = "<!DOCTYPE html>" +
+        "<html><head><title>DOReMI SOlFÁ-móveis</title>" +
+        "<link rel='stylesheet' type='text/css' href='style.css'>" +
+        "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Karla|Stoke'>" +
+        "</head><body>" +
+        "<div class='apresentacao'>" +
+        "<h3>" + Tabcama[tipo][0] + "</h3>" +
+        "<p>" + Tabcama[tipo][1] + "</p>" +
+        "<p><img src='ImagensAD2/" + Tabcama[tipo][3] + ".jpg' /></p>" +
+        "<div>" +
+        "<p>" + Tabcama[tipo][2] + "</p>" +
+        "<p>Preço: R$ " + Tabcama[tipo][4] + ",00</p></div>" +
+        "<form>" +
+        "<input type='button' value='Fechar' onclick='window.close();' />" +
+        "</form></div>" +
+        "</body></html>";
 
-    gab.document.open();
-    gab.document.write("<!DOCTYPE html>");
-    gab.document.write("<html lang='pt-br'><head>");
-    gab.document.write("<meta charset='UTF-8'>");
-    gab.document.write("<title>DOReMI SOlFÁ-móveis</title>");
-    gab.document.write("<base href='" + pasta + "'>");
-    gab.document.write("<link rel='stylesheet' href='style.css'>");
-    gab.document.write("</head><body class='janela-cama'>");
-    gab.document.write("<div class='apresentacao'>");
-    gab.document.write("<h3>" + cama[0] + "</h3>");
-    gab.document.write("<p class='estilo-cama'>" + cama[1] + "</p>");
-    gab.document.write("<p><img src='Imagens/" + cama[3] + ".jpg' alt='" + cama[0] + " " + cama[1] + "'></p>");
-    gab.document.write("<p>" + cama[2] + "</p>");
-    gab.document.write("<p>Preço: R$ " + cama[4] + ",00</p>");
-    gab.document.write("<form>");
-    gab.document.write("<input type='button' value='Fechar' onclick='window.close();'>");
-    gab.document.write("</form>");
-    gab.document.write("</div>");
-    gab.document.write("</body></html>");
-    gab.document.close();
+    // 4. Escreve o HTML na janela
+    jan.document.open();
+    jan.document.write(html);
+    jan.document.close();
+
+    // 5. Dá o foco para a nova janela
+    jan.focus();
 }
