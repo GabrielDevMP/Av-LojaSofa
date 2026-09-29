@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOReMI SOlFÁ-móveis</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+
+<body>
+    <header>
+        <img src="Imagens/DoremisofaLogoTopo.png" alt="DOReMI SOlFÁ" class="imgLogo">
+        <address class="ender">
+            TV. La Donna e Mobile 134<br>
+            Tel: (21) 21224-4881<br>
+            <a href="mailto:contato@doremisolfa.com.br">contato@doremisolfa.com.br</a>
+        </address>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Apresentação </a></li>
+            <li><a href="Doremi.html">Camas</a></li>
+            <li><a href="Solfa.html">Sofás</a></li>
+            <li><a href="Encomendas.html">Encomendas</a></li>
+
+        </ul>
+
+    </nav>
+
+
+   <section>
+    <h3 class="titulo">Cadastro</h3>
+
+<div class="FormBox">
+
+<form method="POST">
+<fieldset class="FSLinInteira">
+<legend>Identificação</legend>
+
+<div class="LinhaForm">
+<label for="idEmailGnd" class="LabBox">E-mail:</label>
+
+<input id="idEmailGnd" class="InpBoxGnd"
+type="email" name="TxtEmail" required /></div>
+
+<div class="LinhaForm">
+<span class="ColEsq">
+<label for="idSenha" class="LabBox">Senha:</label>
+
+<input id="idSenha" class="InpBoxMed"
+type="password" name="TxtSenha" required /></span>
+
+<span class="ColDir">
+<label for="idConf" class="LabBox">Confirme:</label>
+
+<input id="idConf" class="InpBoxMed"
+type="password" name="TxtConf" required /></span>
+
+</div>
+</fieldset>
+
+<fieldset class="FSLinInteira">
+<legend>Dados Pessoais</legend>
+
+<div class="LinhaForm">
+<label for="idNome" class="LabBox">Nome:</label>
+
+<input id="idNome" class="InpBoxGnd"
+type="text" name="TxtNome" required /></div>
+
+<div class="LinhaForm" id="linhaEnder">
+<label class="LabBox">Endereço: </label>
+
+<textarea name="TxtEnder" class="InpBoxGnd"
+id="inpEnder" ></textarea>
+
+</div>
+
+
+<div class="LinhaForm">
+<span class="ColEsq">
+<label class="LabBox">Telefone:</label>
+
+<input type="text" class="InpBoxMed"
+name="TxtTelefone" required />
+</label>
+
+</span>
+
+<span class="ColDir">
+<label class="LabBox">Celular:</label>
+
+
+<input type="text" class="InpBoxMed"
+name="TxtCelular" />
+</span>
+
+</div>
+
+<fieldset class="FSColEsq"><legend>Nacimento:</legend>
+
+
+<input type="number" name="TxtDiaNasc"
+min="1" max="31" class="numDD" /> /
+
+<input type="number" name="TxtMesNasc"
+min="1" max="12" class="numDD" />
+ /
+<input type="number" name="TxtAnoNasc" value="1980"
+min="1920" max="2000" class="numQD" />
+
+
+</fieldset>
+<fieldset class="FSColDir"><legend>Sexo:</legend>
+
+<label><input type="radio" name="TglSexo"
+value="M" />Mas</label>
+
+<label><input type="radio" name="TglSexo"
+value="F" />Fem</label>
+
+
+<label><input type="radio" name="TglSexo"
+value="O" checked />Outro</label>
+
+</fieldset>
+
+</fieldset>
+
+<div class="botoes">
+<input type="submit" value="Cadastrar" />
+<input type="reset" value="Limpar" />
+</div>
+
+</div>
+</section>
+</body>
+</html>
